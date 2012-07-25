@@ -68,26 +68,33 @@ def guess_number():
                 elif (again == 'n'):
                     print "Goodbye, thanks for playing!"
                     sys.exit()
-#def rock_paper_scissors():
+def rock_paper_scissors():
 
- #   computer = random.sample(['rock', 'paper', 'scissors'], 1)
- #   if (`computer` == "rock"):
- #       print "asdfadf"
- #   elif (`computer` == "paper"):
- #       print "asdffdsafdsafdsaf"
- #   elif (`computer` == "scissors"):
- #       print "brooo"
- #   return computer
-    #user = raw_input("Choose rock, paper, or scissors" + "\n")
+    computer = random.randint(1, 3)
+    if (computer == 1):
+        computer = "rock"
+        
+    elif (computer == 2):
+        computer = "paper"
+       
+    elif (computer == 3):
+        computer = "scissors"
+        
+    user = raw_input("Choose rock, paper, or scissors" + "\n")
 
-    #if (computer == 'rock' and user == 'scissors'):
-     #   print "comp had rock, you lose"
+    if (computer == user):
+    	print "It's a TIE! Try again"
+    	rock_paper_scissors()
+    elif(computer == 'rock' and user == 'paper' or computer == 'scissors' and user == 'rock' or computer == 'paper' and user == 'scissors'):
 
-    #elif (computer == 'paper' and user == 'rock'):
-     #   print "comp had paper, you lose"
+        print "You WIN! You chose %s and the computer had %s" % (user, computer)
+        sys.exit()
 
-    #elif (computer == 'scissors' and user == 'paper'):
-     #   print "comp had scissors, you lose"
+    elif (computer == 'paper' and user == 'rock' or computer == 'rock' and user == 'scissors' or computer == 'scissors' and user == 'paper'):
+        print "You LOSE! You chose %s and the computer had %s" % (user, computer)
+        sys.exit()
 
-    #else:
-     #   rock_paper_scissors()
+    else:
+        rock_paper_scissors()
+main()
+
